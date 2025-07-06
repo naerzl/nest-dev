@@ -11,7 +11,7 @@ export class UserController {
 
   @Get()
   getUser() {
-    console.log(this.configService.get('token'), '@@@@@@@');
+    console.log(this.configService.get('DBASE_URL'), '@@@@@@@');
     return this.userService.getUsers();
   }
 

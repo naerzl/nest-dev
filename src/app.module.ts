@@ -13,9 +13,9 @@ import * as Joi from 'joi';
     RangeModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      validationSchema: Joi.object({
-        DBASE_URL: Joi.string().required(),
-      }),
+      // validationSchema: Joi.object({
+      //   DBASE_URL: Joi.string().required(),
+      // }),
     }),
   ],
   controllers: [AppController],
