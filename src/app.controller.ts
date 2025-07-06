@@ -1,15 +1,17 @@
 import { Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
+import { ConfigService } from '@nestjs/config';
 
-@Controller('/sapi/v1')
+@Controller()
 export class AppController {
-  private readonly appService: AppService;
-
-  constructor() {}
+  constructor(
+    private appService: AppService,
+    private configService: ConfigService,
+  ) {}
 
   @Get()
   getHello(): string {
-    console.log(this.appService);
+    console.log(this.configService.get('token'));
     return this.appService.getHello();
   }
 

@@ -12,7 +12,9 @@ async function bootstrap() {
     .addTag('sapi/V1')
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('swagger', app, document, {
+    jsonDocumentUrl: 'swagger/json',
+  });
 
   app.setGlobalPrefix('api/v1');
 

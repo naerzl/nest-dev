@@ -1,19 +1,22 @@
-import { Body, Controller, Delete, Get, Post, Req, Res } from '@nestjs/common';
+import { Controller, Delete, Get, Post } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private configService: ConfigService,
+  ) {}
 
   @Get()
-  getUser(@Req() req) {
-    console.log(req);
+  getUser() {
+    console.log(this.configService.get('token'), '@@@@@@@');
     return this.userService.getUsers();
   }
 
   @Post()
-  createUser(@Req() req, @Body() body) {
-    console.log(req.body);
+  createUser() {
     return this.userService.createUser();
   }
 
