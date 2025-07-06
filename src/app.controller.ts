@@ -9,11 +9,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    console.log(this.appService);
     return this.appService.getHello();
-  }
-
-  @Post('/abc')
-  postHello() {
-    return this.appService.postHello();
   }
 }
